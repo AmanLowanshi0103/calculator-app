@@ -1,27 +1,27 @@
-# name: Build Pipeline
+name: Build Pipeline
 
-# on:
-#   push:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout Code
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: 22
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-#       - name: Install dependencies
-#         run: npm install
+      - name: Install dependencies
+        run: npm install
       
-#       - name: Running Test
-#         run: npm test
+      - name: Running Test
+        run: npm test
         
-#       - name: Build project
-#         run: npm run build
+      - name: Build project
+        run: npm run build
