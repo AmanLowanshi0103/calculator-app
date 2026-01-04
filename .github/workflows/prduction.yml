@@ -7,9 +7,6 @@ on:
         description: "Select environment"
         required: true
         default: "production"
-      version:
-        description: "Release version"
-        required: false
 
 jobs:
   deploy:
@@ -35,7 +32,7 @@ jobs:
         run: npm test
 
       - name: Deploy to Production
-        run: |
-          echo "Deploying to ${{ github.event.inputs.environment }}"
-          echo "Version: ${{ github.event.inputs.version }}"
-          # your deploy command here
+        run: npx vercel --token ${{ secrets.VERCEL_TOKEN}} --prod --confirm
+        env: 
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_USER_ID}}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID}}
